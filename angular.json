@@ -139,6 +139,46 @@
           }
         }
       }
+    },
+    "ng-intro": {
+      "root": "projects/ng-intro",
+      "sourceRoot": "projects/ng-intro/src",
+      "projectType": "library",
+      "prefix": "intro",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-intro/tsconfig.lib.json",
+            "project": "projects/ng-intro/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ng-intro/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-intro/src/test.ts",
+            "tsConfig": "projects/ng-intro/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-intro/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-intro/tsconfig.lib.json",
+              "projects/ng-intro/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-intro-library"

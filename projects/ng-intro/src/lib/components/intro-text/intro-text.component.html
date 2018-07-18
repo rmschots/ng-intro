@@ -1,0 +1,13 @@
+<p>
+  {{ data.text }}
+</p>
+<div class="intro-arrow arrow-{{ direction$ | async}}"></div>
+<button *ngIf="!data.automatic" introPreviousButton [hideWhenDisabled]="true">
+  previous
+</button>
+<button *ngIf="!data.automatic" introNextButton>
+  {{ (isLastStep$ | async) ? 'complete' : 'next' }}
+</button>
+<button *ngIf="!data.automatic" introCancelButton>
+  cancel
+</button>
